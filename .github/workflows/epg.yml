@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "30 3 * * *" # every day at 3:30am UTC (9:00am IST)
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
 
@@ -22,7 +22,7 @@ jobs:
     
     - name: Update release
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         hub release edit -a epg.xml -a epg.xml.gz -m "" latest
         
